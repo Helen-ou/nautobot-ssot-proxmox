@@ -1,0 +1,63 @@
+[project]
+name = "nautobot-ssot-proxmox"
+version = "0.1.0"
+description = "Minimal Nautobot SSoT Data Source to import Proxmox VMs/LXCs into Nautobot."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Your Team", email = "it@example.com" }]
+dependencies = [
+  "nautobot-ssot>=3.5.0",
+  "diffsync>=2.0.2",
+  "proxmoxer>=2.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==1.17.1",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+
+[[tool.mypy.overrides]]
+module = "nautobot.apps"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "nautobot_ssot.contrib"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "nautobot.virtualization.models"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "proxmoxer"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "proxmoxer.core"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "django.conf"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "django.contrib.contenttypes.models"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "nautobot.extras.jobs"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "nautobot_ssot.jobs"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "nautobot.extras.models"
+ignore_missing_imports = true
