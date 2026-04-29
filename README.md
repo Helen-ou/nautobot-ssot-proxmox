@@ -66,12 +66,17 @@ Create a dedicated API user and token in Proxmox (UI: Datacenter -> Permissions 
 - Synced attributes:
   - VM: name, vcpus, memory (MB), status__name ("Active" if running, else "Offline"), cluster__name, CFs proxmox_node, proxmox_type
   - IP Addresses are synced and will get them from the config of the LXCs and the qemu-guest-agent network endpoint. It won't crash if you haven't gotten them.
+  TODO : Check why LXCs don't sync disk size
 
 ## Run a sync
 
 1) UI: Apps -> SSoT -> Data Sources -> "Proxmox: Import inventory".
 2) Run with dry-run first.
 3) If the diff looks good, uncheck dry-run (commit) and run again.
+
+# Example
+<img width="1470" height="799" alt="example" src="https://github.com/user-attachments/assets/0b71fcb5-acaa-40ea-a138-28069e01a9f7" />
+
 
 ## Scheduling
 
